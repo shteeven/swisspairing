@@ -132,8 +132,8 @@ def createTestSet():
                registerMember("I"), registerMember("J"),
                registerMember("K"), registerMember("L"),
                registerMember("M"), registerMember("N"),
-               registerMember("O"), registerMember("P"),
-               registerMember("Q"), registerMember("R"),]
+               registerMember("O"), registerMember("P"),]
+               # registerMember("Q"), registerMember("R"),]
                # registerMember("A"), registerMember("B"),
                # registerMember("C"), registerMember("D"),
                # registerMember("E"), registerMember("F"),
@@ -240,12 +240,10 @@ def runTestCase(is_new=False):
         registerPlayer(i)
 
     num_of_players = countPlayers()
-    count = 0
     rounds = int(math.ceil(math.log(num_of_players, 2)))
     for i in range(rounds):
-        count += 1
-        print("round " + str(count))
         current_round = i + 1
+        print("round " + str(current_round))
         line_up = swissPairings(tourney)
         print(line_up)
         for x in line_up:
@@ -256,9 +254,9 @@ def runTestCase(is_new=False):
     print("final scores")
     print(playerStandings(tourney))
     print("They rank :")
-    rank = 1
     rankings = playerRanks(tourney)
     print(rankings)
+    rank = 1
     for i in rankings:
         print(str(rank) + ". " + i[1] + " --ID: " + str(i[0]))
         rank += 1
@@ -278,7 +276,6 @@ def querySpeedTest(t_id):
 
 
 if __name__ == '__main__':
-    #print(countPlayers())
     truncateAll()
     testRegisterMember()
     truncateAll()
@@ -293,4 +290,5 @@ if __name__ == '__main__':
     testReportMatch()
     truncateAll()
     runTestCase(True)
+    runTestCase()
     print "Success!  All tests pass!"
