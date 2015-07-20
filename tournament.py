@@ -9,9 +9,9 @@ import copy
 def connect():
     """Connect to the PostgreSQL database.  Returns a database connection."""
     # For development with EDB/pgAdmin setup
-    return psycopg2.connect(host="localhost", dbname="tournament",
-                            user="postgres")
-    #return psycopg2.connect(dbname="tournament")
+    #return psycopg2.connect(host="localhost", dbname="tournament",
+    #                        user="postgres")
+    return psycopg2.connect(dbname="tournament")
 
 
 def truncateMembers():
