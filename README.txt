@@ -12,6 +12,14 @@
   swiss-pairing function, which ensures the players are paired fairly and
   relatively evenly throughout a tournament and that no players match more than
   once or have two rounds with a 'bye'.
+  Future plans: Complexity is quadratic. If some way to call all possible pairs
+  from database at one time, the run time for large data sets would be greatly
+  reduced. As of now, all test pass with data sets of ____ in ____ ms:
+  18: 2791
+  36: 4844
+  72: 9949
+  144: 8573
+  288: 145,975
 
   How does it work?
   ------------------
@@ -66,6 +74,8 @@
   errors that say database and tables do not exist the first time this is ran;
   these are just an attempt to drop any existing database and tables from
   previous sessions.
+
+
 
   Contacts
   --------
