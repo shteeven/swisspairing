@@ -44,10 +44,16 @@
   Documentation
   -------------
 
-  'python serve.py'
-  To view a compiled site, simply run serve.py. This file depends on this file
-  structure:
-    movie project/
+  To run a tournament, follow the 'Installation' section below, then populate
+  the members table with players as they sign up with registerMember(name). When
+  it is time to start a tournament, add the members that are participating in
+  the tourney with registerPlayer(member ID). After all players are registered
+  in the players table, run swissPairings(tourney id). When the matches have
+  completed, record the data with reportMatches(touney id, round, winner id,
+  loser id, [optional: isDraw=True,False]). When tourney is complete, run
+  endTourney(); this will add tourney data to members' permanent records and
+  clear the players table.
+    tournament/
     |-- README.txt
     |-- test.py
     |-- tournament.py
@@ -57,7 +63,7 @@
   ------------
 
   Run `psql -f tournament.sql` to create the database and tables. Ignore the
-  errors that say database and tables do not exit the first time this is ran;
+  errors that say database and tables do not exist the first time this is ran;
   these are just an attempt to drop any existing database and tables from
   previous sessions.
 
