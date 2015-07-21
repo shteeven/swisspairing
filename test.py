@@ -275,8 +275,7 @@ def createTestSet():
     #players.extend(players2)
     #players.extend(players2)
 
-    db = connect()
-    c = db.cursor()
+    db, c = connect()
     x = countMembers()
     y = countMembers()
     for i in players:
@@ -300,8 +299,7 @@ def runTestCase(is_new=False):
         tourney = 1
     else:
         truncatePlayers()
-        db = connect()
-        c = db.cursor()
+        db, c = connect()
         c.execute("SELECT tourney_id "
                   "FROM matches "
                   "GROUP BY tourney_id "
@@ -342,8 +340,7 @@ def runTestCase(is_new=False):
 
 
 def querySpeedTest(t_id):
-    db = connect()
-    c = db.cursor()
+    db, c = connect()
     c.execute("select tourney_id "
               "from matches WHERE tourney_id = %s "
               "LIMIT 1", (t_id,))
